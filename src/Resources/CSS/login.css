@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container-center{
+    height: 100vh;
+    background-image: url('../Images/bg.jpg');
+    
+}
+.center-form{
+text-align: center;
+align-items: center;
+justify-content: center;
+background-color: rgba(240, 240, 246, 0.3);
+padding: 20px 0px;
+border-radius: 10px;
+}
+
+.d-flex {
+    display: flex!important;
+    height: 100vh;
+  }
+  
+  .center {
+    margin: 0 auto;
+    align-self: center;
+  }
