@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import '../Resources/CSS/home.css';
+import Conversion from './Conversion';
 function Home(){
   const[count,setCount]=useState(0);
   const[result,setResult]=useState(0);
@@ -13,6 +14,11 @@ function Home(){
         <button className='btn' onClick={()=>{count<15?setCount(count+1):setCount(count)}}>Inc</button>
         <button className='btn' onClick={()=>{count>=1?setCount(count-1):setCount(count);}}>Dec</button>
         </div>
+
+        <div className='special'>
+            <Conversion/>
+        </div>
+
         <div className='special'>
 
         {(country==='USD'?<h1>{result/80}</h1>:country==='EUR'?<h1>{result/88}</h1>:country==='YEN'?<h1>{result/1.63}</h1>:<h1>Fill Values</h1>)
@@ -24,10 +30,6 @@ function Home(){
 
         </div>
  
-        <div className='special'>
-
-
-        </div>
          
 
     </>
