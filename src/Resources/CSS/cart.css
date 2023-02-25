@@ -1,0 +1,20 @@
+th{
+   padding: 40px;
+}
+button{
+   padding: 7px;
+   
+   cursor:pointer;
+   background-color:lavender;
+   border-width: 2px;
+   border-color: white;
+
+}
+.operations li{
+   list-style: none;
+   display: inline-block;
+   margin-right: 10px;
+   margin-left: 10px;
+
+   
+}

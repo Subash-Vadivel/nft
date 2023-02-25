@@ -1,71 +1,49 @@
 import React from 'react'
 import { useState } from 'react';
-export default function () {
-    const [amt1,setAmt1]=useState();
-    const [amt2,setAmt2]=useState();
-    const [rate1,setRate1]=useState(80);
-    const [rate2,setRate2]=useState(1);
+export default function Conversion () {
+    const [amt1,setAmt1]=useState(0);
+    const [amt2,setAmt2]=useState(0);
+    const data={
+        USD:1,
+        EUR:0.94,
+        INR:82.74,
+        AUR:1.46
+    }
     const [country1,setCountry1]=useState('USD');
     const [country2,setCountry2]=useState('INR');
-    const special=(e)=>{
-
-        setCountry1(e.target.value)
-        if(e.target.value==='USD')
-        {
-            setRate1(80);
-            setAmt2(amt1*80);
-        }
-        if(e.target.value==='EUR')
-        {
-            setRate1(88);
-            setAmt2(amt1*88);
-        }
-        if(e.target.value==='YEN')
-        {
-            setRate1(1.63);
-            setAmt2(amt1*1.63);
-        }
-        if(e.target.value==='PAK')
-        {
-            setRate1(0.0488);
-            setAmt2(amt1*0.0488);
-        }
+    function c1(e)
+    {
+        setCountry1(e.target.value);
+        const rate=(data[e.target.value]/data[country2]);
+     
+        setAmt1(rate*amt2);
     }
-    const special2=(e)=>{
-
-        setCountry2(e.target.value)
-        if(country2==='USD')
-        {
-            setRate2(80);
-        }
-        if(country2==='EUR')
-        {
-            setRate2(88);
-        }
-        if(country2==='YEN')
-        {
-            setRate2(1.63);
-        }
-        if(country2==='PAK')
-        {
-            setRate2(0.0488);
-        }
+    function c2(e)
+    {
+        setCountry2(e.target.value);
+        const rate=(data[e.target.value]/data[country1]);
+        setAmt2(rate*amt1);
     }
     return (
     <>
     <form>
-        <label>{country1} {amt1} to {country2} {amt2}</label><br></br><br></br>
-        <input type="number" onChange={(e)=>{ setAmt1(e.target.value);setAmt2((e.target.value)*rate1);}} value={amt1}></input>
-        <select value={country1} onChange={special}>
+        <label>{country1} {amt1} to {country2} {amt2}</label>                                                                                                <br></br><br></br>
+        <input type="number" onChange={(e)=>{ setAmt1(e.target.value);setAmt2(((data[country2]/data[country1]))*e.target.value);}} value={amt1}></input>
+        <select value={country1} onChange={c1}>
             <option value="USD">USD</option>
             <option value="EUR">EUR</option>
-            <option value="YEN">YEN</option>
-            <option value="PAK">PAK</option>
+            <option value="INR">INR</option>
+            <option value="AUR">AUR</option>
         </select>
         <br></br><br></br>
         <br></br>
-        <input type="number" value={amt2} onChange={(e)=>{setAmt2(e.target.value);setAmt1(e.target.value/rate1)}}></input>
-
+        <input type="number" value={amt2} onChange={(e)=>{setAmt2(e.target.value);setAmt1(e.target.value*((data[country1]/data[country2])))}}></input>
+        <select value={country2} onChange={c2}>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="INR">INR</option>
+            <option value="AUR">AUR</option>
+        </select>
     </form>
     </>
   )

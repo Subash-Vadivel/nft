@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import '../Resources/CSS/home.css';
+import { Calculator } from './Calculator';
 import Conversion from './Conversion';
+import { Col,Row } from 'react-bootstrap';
+import { Cart } from './Cart';
+import Details from './Details';
 function Home(){
   const[count,setCount]=useState(0);
   const[result,setResult]=useState(0);
@@ -29,7 +33,33 @@ function Home(){
         <button className='btn' onClick={()=>{setResult(0)}}>Clear</button>
 
         </div>
- 
+
+        
+        <div className='special'>
+          <Row>
+            <Col md={5} sm={2} xs={2}></Col>
+            <Col md={3} sm={8} xs={8}><Calculator/></Col>
+            <Col md={4} sm={2} xs></Col>
+            
+            </Row>
+        </div>
+        <div className='special'>
+        <Row>
+            <Col md={3} sm={2} xs={2}></Col>
+            <Col md={6} sm={8} xs={8}><Cart/></Col>
+            <Col md={3} sm={2} xs={2}></Col>
+            
+            </Row>          
+        </div>
+        
+      <div className='special'>
+        <Row>
+            <Col md={3} sm={2} xs={2}></Col>
+            <Col md={6} sm={8} xs={8}><Details/></Col>
+            <Col md={3} sm={2} xs={2}></Col>
+            
+            </Row>          
+      </div>
          
 
     </>

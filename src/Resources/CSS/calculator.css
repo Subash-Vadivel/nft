@@ -1,0 +1,21 @@
+.center-form
+{
+     align-items: center;
+     justify-content: center;
+}
+td{
+    padding: 30px;
+    cursor:pointer;
+    background-color:lavender;
+    border-width: 2px;
+    border-color: white;
+}
+td:hover{
+    background-color:gainsboro;
+}
+.specail-output
+{
+    text-align: end;
+    align-items: end;
+
+}
