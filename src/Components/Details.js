@@ -48,6 +48,7 @@ export default function Details() {
         console.log(updatev);
         try{
          var out=data.details.find((val)=>val.roll===updatev);
+         
          if(out===undefined)
          {
             setUp('');
@@ -69,7 +70,8 @@ export default function Details() {
         data.details[obj].ag=e.target.value;setData({...data});
 }}></input> </h6>);}}>
                 Age</button>
-            <br></br>
+            
+            <br></br><br></br>
             
             </h6>
         </div>)
@@ -84,6 +86,46 @@ export default function Details() {
             setUpdateName('');
             setUpdateAge('');
         }
+    }
+    const delData=()=>{
+            try
+            {
+                var out=data.details.findIndex((o)=>o.roll===updatev);
+                
+                console.log(out);
+                if(out===-1)
+                {
+
+            setUp('');
+            setBox('');
+            setUpdateName(null);
+            setUpdateAge(null);
+            setFlag(0);
+                }
+                else if(out===0)
+                {
+                    
+                    console.log("deleted first");
+                  data.details.shift();
+                  setData({...data})
+                }
+                else
+                {
+                    console.log("deleted");
+                  data.details.splice(out,out);
+                  setData({...data})
+                }
+
+            }
+            catch(err)
+            {
+            setUp('');
+            setBox('');
+            setUpdateName(null);
+            setUpdateAge(null);
+            setFlag(0);
+
+            }
     }
     var rows=data.details.map((val,ind)=><tr><td>{val.n}</td><td>{val.ag}</td><td>{val.roll}</td></tr>);
   return (
@@ -112,10 +154,12 @@ export default function Details() {
      
      <label style={{marginRight:"10px"}}>Enter Roll No</label>
      <input type="text" value={updatev} onChange={(e)=>Setupdatev(e.target.value)}></input><button onClick={upd}>Search</button>
+            <button onClick={delData}>Delete</button>
+
      {up}
 
                {box}
-               {flag===1?<button onClick={()=>{setBox('');setFlag(0)}}> Update </button>:<></>}
+               {flag===1?<button onClick={()=>{setBox('');setFlag(0);setUpdateName(null);setUpdateAge(null);}}> Update </button>:<></>}
   </>
 )
 

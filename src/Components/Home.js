@@ -60,6 +60,10 @@ function Home(){
             
             </Row>          
       </div>
+
+      <div className='special'>
+
+      </div>
          
 
     </>
