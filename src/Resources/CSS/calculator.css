@@ -10,9 +10,9 @@ td{
     border-width: 2px;
     border-color: white;
 }
-td:hover{
+/* td:hover{
     background-color:gainsboro;
-}
+} */
 .specail-output
 {
     text-align: end;
