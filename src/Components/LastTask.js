@@ -87,13 +87,8 @@ var rows=data.people.map((val,index)=>{if(val.status) { return <tr key={val.id}>
 else
   var rows=data.people.map((val,index)=><tr key={val.id}><td><input type="checkbox" onClick={(e)=>{
     data.people[index].status=e.target.checked;console.log(data)}}  defaultChecked={val.status}  ></input></td><td>{val.name}</td><td><button onClick={()=>{setUp(val.id); setUpdval(data.people[val.id].name);}}>Update</button></td><td><button onClick={()=>del(val.id)}>Delete</button></td></tr>);
-
-
-
-   // var rows=data.people.map((val,index)=><tr key={val.id}><td><input type="checkbox" onClick={(e)=>{data.people[val.id].status=e.target.checked;console.log(data)}} ></input></td><td>{val.name}</td><td><button onClick={()=>{setUp(val.id); setUpdval(data.people[val.id].name);}}>Update</button></td><td><button onClick={()=>del(val.id)}>Delete</button></td></tr>);
     return (
     <>
-    {/* {rows} */}
     <div className='special'>
      <ul className='operations'>
       <li>
@@ -108,12 +103,10 @@ else
       <li>
       <button onClick={()=>{setCompleted(true);setPending(false)}}> Completed </button>
       </li>
-      
       <li>
       <button onClick={()=>{setCompleted(false);setPending(false)}}> ALL </button>
       </li>
       </ul>
-      
       {insertf?(b()):(<></>)}
       {insertl?(f()):(<></>)}
       <table className='center'>
@@ -122,7 +115,6 @@ else
             <th>Name</th>
             <th>Update</th>
             <th>Delete</th>
-
         </tr>
         {rows}
       </table>
